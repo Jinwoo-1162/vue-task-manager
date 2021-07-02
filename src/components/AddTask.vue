@@ -59,6 +59,18 @@ export default {
 </script>
 
 <style scoped>
+.btn:hover {
+    animation-name: btnHover;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btnHover {
+    100% {
+        transform: scale(1.05);
+    }
+}
+
 .add-form {
   margin-bottom: 40px;
 }

@@ -1,4 +1,5 @@
 <template>
+  <InfoPane />
   <div class="container">
     <Header :showAddTask="showAddTask" @toggle-add-task="toggleAddTask" title="Task Tracker" />
     <div v-show="showAddTask">
@@ -12,6 +13,7 @@
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
 import AddTask from './components/AddTask.vue';
+import InfoPane from './components/InfoPane.vue'
 
 export default {
   name: 'App',
@@ -19,6 +21,7 @@ export default {
     Header,
     Tasks,
     AddTask,
+    InfoPane,
   },
   data() {
     return {
@@ -32,6 +35,7 @@ export default {
     },
     addTask(task) {
       this.tasks = [...this.tasks, task];
+      this.showAddTask = false;
     },
     deleteTask(id) {
       if (confirm('Are you sure?')) {
@@ -77,6 +81,9 @@ export default {
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+  html {
+    min-height: 100%;
+  }
   * {
     box-sizing: border-box;
     margin: 0;
@@ -84,8 +91,11 @@ export default {
   }
   body {
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+    height: 100%;
   }
   .container {
+    background: white;
     max-width: 500px;
     margin: 30px auto;
     overflow: auto;

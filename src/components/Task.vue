@@ -24,12 +24,28 @@ export default {
 .fas {
   color: red;
 }
+.fas:hover {
+  color: rgb(170, 0, 0);
+}
 .task {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
 }
+
+.task:hover {
+  animation-name: increase;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes increase {
+  100% {
+    transform: scale(1.05);
+  }
+}
+
 .task.reminder {
   border-left: 5px solid green;
 }
